@@ -25,3 +25,21 @@ You need to build a model that is able to classify customer complaints based on 
 <br>
 
 With the help of topic modelling, you will be able to map each ticket onto its respective department/category. You can then use this data to train any supervised model such as logistic regression, decision tree or random forest. Using this trained model, you can classify any new customer complaint support ticket into its relevant department.
+
+
+## Tasks Performed in the Project:
+1. Data loading
+
+2. Text preprocessing
+
+3. Exploratory data analysis (EDA)
+
+4. Feature extraction
+
+5. Topic modelling 
+
+6. Model building using supervised learning
+
+7. Model training and evaluation
+
+8. Model inference
