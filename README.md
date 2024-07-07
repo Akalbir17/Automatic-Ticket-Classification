@@ -95,10 +95,8 @@ The best-performing model achieved an F1-score of 94.46% after hyperparameter tu
 1. Clone the repository: git clone https://github.com/Akalbir17/Automatic-Ticket-Classification.git
    
 2. Install the required dependencies: `pip install -r requirements.txt`
-   
-3. Place the customer complaint tickets dataset in the `data/` directory.
 
-4. Open the Jupyter Notebook `notebooks/Automatic_Ticket_Classification_Notebook.ipynb`[1] and run the cells to preprocess the data, build the models, and evaluate their performance.
+3. Open the Jupyter Notebook `notebooks/Automatic_Ticket_Classification_Notebook.ipynb`[1] and run the cells to preprocess the data, build the models, and evaluate their performance.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
