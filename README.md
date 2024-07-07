@@ -1,60 +1,107 @@
-# Automatic-Ticket-Classification
+# Automatic Ticket Classification
 
-## Problem Statement 
-For a financial company, customer complaints carry a lot of importance, as they are often an indicator of the shortcomings in their products and services. If these complaints are resolved efficiently in time, they can bring down customer dissatisfaction to a minimum and retain them with stronger loyalty. This also gives them an idea of how to continuously improve their services to attract more customers. 
+## Table of Contents
+- [Problem Statement](#problem-statement)
+- [Dataset](#dataset)
+- [Methodology](#methodology)
+  - [Data Loading](#data-loading)
+  - [Text Preprocessing](#text-preprocessing)
+  - [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+  - [Feature Extraction](#feature-extraction)
+  - [Topic Modelling](#topic-modelling)
+  - [Model Building](#model-building)
+  - [Model Training and Evaluation](#model-training-and-evaluation)
+  - [Model Inference](#model-inference)
+- [Results](#results)
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [License](#license)
+- [Conclusion](#conclusion)
 
- 
+## Problem Statement
+For a financial company, customer complaints are crucial as they indicate shortcomings in products and services. Efficiently resolving these complaints can minimize customer dissatisfaction and retain their loyalty. However, manually evaluating and assigning each ticket to the relevant department becomes tedious as the company grows.
 
-These customer complaints are unstructured text data; so, traditionally, companies need to allocate the task of evaluating and assigning each ticket to the relevant department to multiple support employees. This becomes tedious as the company grows and has a large customer base.
+The objective of this project is to automate the customer support tickets system for a financial company. By building a model that can classify customer complaints based on products/services, tickets can be segregated into relevant categories, enabling quick resolution of issues.
 
- 
-
-In this case study, you will be working as an NLP engineer for a financial company that wants to automate its customer support tickets system. As a financial company, the firm has many products and services such as credit cards, banking and mortgages/loans. <br>
-<br>
-<br>
-You need to build a model that is able to classify customer complaints based on the products/services. By doing so, you can segregate these tickets into their relevant categories and, therefore, help in the quick resolution of the issue.The different products/services are: -
+## Dataset
+The dataset consists of customer complaint tickets, which are unstructured text data. The tickets need to be classified into the following categories:
 - Credit card / Prepaid card
-
 - Bank account services
-
 - Theft/Dispute reporting
-
 - Mortgages/loans
+- Others
 
-- Others 
-<br>
+## Methodology
 
-With the help of topic modelling, you will be able to map each ticket onto its respective department/category. You can then use this data to train any supervised model such as logistic regression, decision tree or random forest. Using this trained model, you can classify any new customer complaint support ticket into its relevant department.
+### Data Loading
+- Load the customer complaint tickets dataset into a suitable data structure.
 
+### Text Preprocessing
+- Perform text preprocessing steps such as lowercasing, removing special characters, and tokenization.
+- Handle missing values and remove any irrelevant information.
 
-## Tasks Performed in the Project:
-1. Data loading
+### Exploratory Data Analysis (EDA)
+- Analyze the distribution of tickets across different categories.
+- Visualize the frequency of words and phrases in the tickets.
 
-2. Text preprocessing
+### Feature Extraction
+- Extract relevant features from the preprocessed text data.
+- Techniques such as TF-IDF, word embeddings, or bag-of-words can be used.
 
-3. Exploratory data analysis (EDA)
+### Topic Modelling
+- Apply topic modeling techniques like Latent Dirichlet Allocation (LDA) to identify underlying topics in the tickets.
+- Map each ticket to its respective department/category based on the identified topics.
 
-4. Feature extraction
+### Model Building
+- Build supervised learning models such as logistic regression, decision trees, or random forests.
+- Use the extracted features and mapped categories as input to train the models.
 
-5. Topic modelling 
+### Model Training and Evaluation
+- Split the data into training and testing sets.
+- Train the supervised models on the training data.
+- Evaluate the models using appropriate metrics such as accuracy, precision, recall, and F1-score.
 
-6. Model building using supervised learning
+### Model Inference
+- Use the trained model to classify new customer complaint tickets into their relevant departments.
 
-7. Model training and evaluation
+## Results
+The following table summarizes the performance of different supervised models tested on the dataset:
 
-8. Model inference
+| Model Name                | F1 Score (%) | Hyper Parameter Tuned F1 Score (%) |
+|---------------------------|--------------|-----------------------------------|
+| Logistic Regression       | 91.96        | 94.46                            |
+| Decision Tree Classifier  | 78.50        | 80.43                            |
+| Random Forest             | 81.70        | 81.60                            |
+| Naive Bayes               | 67.75        | 78.17                            |
+| Support Vector Machine    | 91.59        | 91.78                            |
+| XGBoost                   | 89.74        | 92.16                            |
+| CatBoost                  | 90.81        | 79.34                            |
+| AdaBoost                  | 84.52        | 78.67                            |
 
+The best-performing model achieved an F1-score of 94.46% after hyperparameter tuning.
 
-## Supervised Models Tested and Results
-<table><tr><td class="border_l border_t border_r border_b selected" colspan="1" rowspan="1" style="display: table-cell; text-align: left; font-weight: bold;"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="KKsqoLFxeezLIfbGeVuNn"><p><span>Model Name </span></p></div></div></td><td class="border_l border_t border_r border_b selected" colspan="1" rowspan="1" style="display: table-cell; text-align: right; font-weight: bold;"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="3nuJ39wsFanJvXUWDuc6K"><p><span>F1 Score in %</span></p></div></div></td><td class="border_l border_t border_r border_b selected" colspan="1" rowspan="1" style="display: table-cell; text-align: right; font-weight: bold;"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="AcYigt3_z-mvWySgIgpRC"><p><span>Hyper Parameter Tuned F1 Score in %</span></p></div></div></td></tr><tr><td colspan="1" rowspan="1" style="display: table-cell; text-align: left;" class="border_l border_t border_r border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>Logistic Regression </span></p></div></div></td><td colspan="1" rowspan="1" style="display: table-cell; text-align: right;" class="border_l border_t border_r border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>91.96</span></p></div></div></td><td colspan="1" rowspan="1" style="display: table-cell; text-align: right;" class="border_l border_t border_r border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>94.46</span></p></div></div></td></tr><tr><td colspan="1" rowspan="1" style="display: table-cell; text-align: left;" class="border_l border_t border_r border_b selected"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="BVgpHY-ODQET7iddWozJc"><p><span>Decision Tree Classifier</span></p></div></div></td><td colspan="1" rowspan="1" style="display: table-cell; text-align: right;" class="border_l border_t border_r border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>78.50</span></p></div></div></td><td colspan="1" rowspan="1" style="display: table-cell; text-align: right;" class="border_l border_t border_r border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>80.43</span></p></div></div></td></tr><tr><td colspan="1" rowspan="1" style="display: table-cell; text-align: left;" class="border_l border_t border_r border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>Random Forest</span></p></div></div></td><td colspan="1" rowspan="1" style="display: table-cell; text-align: right;" class="border_l border_t border_r border_b selected"><div class="wrap"><div style="margin: 10px 5px;"><p><span>81.70</span></p></div></div></td><td colspan="1" rowspan="1" style="display: table-cell; text-align: right;" class="border_l border_t border_r border_b selected"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="rStMrgeEC3-V_fDk_gH0C"><p><span>81.60</span></p></div></div></td></tr><tr><td colspan="1" rowspan="1" style="display: table-cell; text-align: left;" class="border_l border_t border_r border_b selected"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="u2y13RqWb8P83dCkROcuB"><p><span>Naive Bayes</span></p></div></div></td><td colspan="1" rowspan="1" style="display: table-cell; text-align: right;" class="border_l border_t border_r border_b selected"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="kL22ZRP2InB1O02_mr5Gs"><p><span>67.75</span></p></div></div></td><td colspan="1" rowspan="1" class="border_l border_t border_r border_b selected" style="display: table-cell; text-align: right;"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="yN9CZZ_D2-Iy4vW56TTeO"><p><span>78.17</span></p></div></div></td></tr><tr><td class="border_l border_t border_r border_b selected"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="AkT0rkuKResi35KSxgCoc"><p><span>Support Vector Machine</span></p></div></div></td><td class="border_l border_t border_r border_b selected" style="text-align: right;"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="LvwS_iuH77M4xMZ8yWggw"><p><span>91.59</span></p></div></div></td><td class="border_l border_t border_r border_b selected" style="text-align: right;"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="DJz6R6gKlvkM8HZvpcL2E"><p><span>91.78</span></p></div></div></td></tr><tr><td class="border_l border_t border_r border_b selected"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="GHEXxswXrr4MVwnkVm53t"><p><span>XGBoost</span></p></div></div></td><td class="border_l border_t border_r border_b selected" style="text-align: right;"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="E-OxWo28qk5mb5tJQ8U7w"><p><span>89.74</span></p></div></div></td><td class="border_l border_t border_r border_b selected" style="text-align: right;"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="09wqyFKIlrWp0yHZ511O0"><p><span>92.16</span></p></div></div></td></tr><tr><td class="border_l border_t border_r border_b selected"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="zMrHFJXkdPr_lDisri4uH"><p><span>CatBoost</span></p></div></div></td><td class="border_l border_t border_r border_b selected" style="text-align: right;"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="RGO1msGRT42vBknvXqszQ"><p><span>90.81</span></p></div></div></td><td class="border_l border_t border_r border_b selected" style="text-align: right;"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="HQ-7mP67tGlNjQxZlOSIw"><p><span>79.34</span></p></div></div></td></tr><tr><td class="border_l border_t border_r border_b selected"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="yGlzesahUKyg6XhAQVrFJ"><p><span>AdaBoost</span></p></div></div></td><td class="border_l border_t border_r border_b selected" style="text-align: right;"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="y9tcncKIALYJrrr-o5Y9Y"><p><span>84.52</span></p></div></div></td><td class="border_l border_t border_r border_b selected" style="text-align: right;"><div class="wrap"><div style="margin: 10px 5px;" class="" contenteditable="false" data-gramm="false" wt-ignore-input="true" data-quillbot-element="H2VV0CPXMQECq5W1SryGT"><p><span>78.67</span></p></div></div></td></tr></table>
- 
- 
- ## Best Model Confusion Matrix
- ![2023-01-19](https://user-images.githubusercontent.com/69676151/213446306-7628dbb9-ad53-4b4d-be1d-7b7686d48085.png)
+## Requirements
+- Python 3.7+
+- pandas
+- numpy
+- scikit-learn
+- nltk
+- gensim
+- matplotlib
+- seaborn
+- jupyter
 
- 
- ## Conclusion
- In this project we were successfully able to predict the different classes based on the complaints recieved from the customers. We performed Text preprocessing,Exploratory data analysis (EDA), Feature extraction and Topic modelling on the data. Later on we applied 8 different types of supervised machine learning models on the data and used F1 score as the evaluation metrics for the models as the class distribution was imbalanced. After model building we understood that `Logistic Regression Model` performed the best with an `F1 score 0.94` with `hyper paramter tuning`. Lastly, we completed the project by using Logistic Regression Model for Model Inference and testing the model on dummy data.
+## Usage
+1. Clone the repository: git clone https://github.com/Akalbir17/Automatic-Ticket-Classification.git
+   
+2. Install the required dependencies: `pip install -r requirements.txt`
+   
+3. Place the customer complaint tickets dataset in the `data/` directory.
 
- 
+4. Open the Jupyter Notebook `notebooks/Automatic_Ticket_Classification_Notebook.ipynb`[1] and run the cells to preprocess the data, build the models, and evaluate their performance.
 
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Conclusion
+In this project, we developed an automated ticket classification system for a financial company. By leveraging NLP techniques and supervised learning models, we were able to classify customer complaint tickets into their relevant categories. The best-performing model achieved an F1-score of 94.46% after hyperparameter tuning. This system can significantly reduce the manual effort required in ticket assignment and improve the efficiency of customer support processes.
